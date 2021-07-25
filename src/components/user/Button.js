@@ -8,7 +8,7 @@ import {Button as MaterialButton, Grid, FormControl, FormLabel, RadioGroup,Radio
 export const Button = ({ size, variant, color, text, children  }) => {
   const { connectors: {connect, drag} } = useNode();
   return (
-    <MaterialButton ref={ ref => connect(drag(ref))} size={size} variant={variant} color={color} >
+    <MaterialButton ref={ ref => connect(drag(ref))} size={size} variant={variant} color={color}  href="https://google.com" target="_blank">
       {text}
     </MaterialButton>
   );

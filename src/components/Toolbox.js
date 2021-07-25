@@ -5,7 +5,15 @@ import { Button } from "./user/Button";
 import { Container } from "./user/Container";
 import { Element, useEditor } from "@craftjs/core";
 import { Text } from "./user/Text";
+import { RichTextEditor } from "./user/RichTextEditor";
 
+
+const richTextValue = [
+  {
+    type: 'paragraph',
+    children: [{ text: 'A line of text in a paragraph.' }],
+  },
+]
 
 
 export const Toolbox = () => {
@@ -27,6 +35,11 @@ export const Toolbox = () => {
         <Grid container direction="column" item>
           <MaterialButton ref={ref=> connectors.create(ref, <Element is={Container} padding={20} canvas />)} variant="contained">Container</MaterialButton>
         </Grid>
+
+        <Grid container direction="column" item>
+          <MaterialButton ref={ref=> connectors.create(ref, <Element is={RichTextEditor} padding={20} richTextValue={richTextValue} canvas />)} variant="contained">RTE (Slatejs)</MaterialButton>
+        </Grid>
+
         {/* <Grid container direction="column" item>
           <MaterialButton variant="contained">Card</MaterialButton>
         </Grid> */}

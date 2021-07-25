@@ -5,12 +5,14 @@ import { Typography, Paper, Grid, makeStyles } from '@material-ui/core';
 import React from 'react';
 
 import { SettingsPanel } from '../components/SettingsPanel';
+import SlateEditor from '../components/slatejs/SlateEditor';
 import { Toolbox } from '../components/Toolbox';
 import { Topbar } from '../components/Topbar';
 import { Button } from '../components/user/Button';
 import { Card} from '../components/user/Card';
 import { Container } from '../components/user/Container';
 import { Text } from '../components/user/Text';
+import { RichTextEditor } from '../components/user/RichTextEditor';
 import '../styles/main.css';
 
 const useStyles = makeStyles(() => ({
@@ -19,6 +21,13 @@ const useStyles = makeStyles(() => ({
     background: 'rgb(252, 253, 253)',
   },
 }));
+
+const richTextValue = [
+  {
+    type: 'paragraph',
+    children: [{ text: 'A line of text in a paragraph.' }],
+  },
+]
 export default function App() {
   const classes = useStyles();
 
@@ -33,6 +42,7 @@ export default function App() {
           Button,
           Text,
           Container,
+          RichTextEditor,
         }}
       >
         <Topbar />
@@ -43,6 +53,7 @@ export default function App() {
                 
                 <Button text="Click me" size="small" />
                 <Text fontSize={20} text="Hi world!" />
+                <RichTextEditor richTextValue={richTextValue}  />
                 <Element canvas is={Container} padding={6} background="#999999">
                   <Text size="small" text="It's me again!" />
                 </Element>
@@ -57,6 +68,9 @@ export default function App() {
           </Grid>
         </Grid>
       </Editor>
+
+      <h1>Slatejs editor</h1>
+      <SlateEditor />
     </div>
   );
 }

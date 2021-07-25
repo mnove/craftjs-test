@@ -53,6 +53,7 @@ export const Topbar = () => {
             variant="outlined"
             color="secondary"
             onClick={() => {
+              console.log(query.serialize())
               const json = query.serialize();
               copy(lz.encodeBase64(lz.compress(json)));
               setSnackbarMessage("State copied to clipboard");
